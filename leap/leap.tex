@@ -1,0 +1,30 @@
+\documentclass[a4paper]{article}
+\thispagestyle{empty}
+\usepackage[margin=0pt, paperwidth=500cm, paperheight=500cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{xfp}
+\begin{document}
+
+\ExplSyntaxOn
+\newcommand{\modulo}[2]{\int_mod:nn{#1}{#2}}
+\ExplSyntaxOff
+
+\newcommand\IsLeapYear[1] {
+  \ifnum \modulo{#1}{400} = 0
+    is%
+  \else
+    \ifnum \modulo{#1}{100} = 0
+      is not%
+    \else
+      \ifnum \modulo{#1}{4} = 0
+        is%
+      \else
+        is not%
+      \fi
+    \fi
+  \fi
+}
+
+The year \Year \IsLeapYear{\Year} a leap year.
+
+\end{document}

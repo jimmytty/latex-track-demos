@@ -1,0 +1,79 @@
+* LaTeX Exercism Demos (proof of concept)
+
+** Note
+
+Is not impossible to solve Exercism exercises using [[https://pt.wikipedia.org/wiki/LaTeX][*LaTeX*]] and applying TDD metodology but it's a bit hacky...
+
+** Repository dependencies
+
++ ~pdflatex~: [[https://www.tug.org/applications/pdftex/]]
+  #+html:<details>
+  #+html:<summary>version details</summary>
+  #+BEGIN_SRC bash :exports results :results verbatim
+    pdflatex --version
+  #+END_SRC
+
+  #+RESULTS:
+  #+begin_example
+  pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux)
+  kpathsea version 6.4.0
+  Copyright 2024 Han The Thanh (pdfTeX) et al.
+  There is NO warranty.  Redistribution of this software is
+  covered by the terms of both the pdfTeX copyright and
+  the Lesser GNU General Public License.
+  For more information about these matters, see the file
+  named COPYING and the pdfTeX source.
+  Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+  Compiled with libpng 1.6.43; using libpng 1.6.43
+  Compiled with zlib 1.3.1; using zlib 1.3.1
+  Compiled with xpdf version 4.04
+  #+end_example
+  #+html:</details>
+
++ ~pdftotext~: [[http://poppler.freedesktop.org]]
+  #+html:<details>
+  #+html:<summary>version details</summary>
+  #+BEGIN_SRC bash :exports results :results verbatim
+    pdftotext -v 2>&1
+  #+END_SRC
+
+  #+RESULTS:
+  : pdftotext version 24.03.0
+  : Copyright 2005-2024 The Poppler Developers - http://poppler.freedesktop.org
+  : Copyright 1996-2011, 2022 Glyph & Cog, LLC
+  #+html:</details>
+
++ ~bats~: [[https://bats-core.readthedocs.io/en/stable/]]
+  #+html:<details>
+  #+html:<summary>version details</summary>
+  #+BEGIN_SRC bash :exports results :results verbatim
+    bats --version
+  #+END_SRC
+
+  #+RESULTS:
+  : Bats 1.11.0
+
+** Running the examples
+
+Enter in a subdirectory and runs:
+
+#+BEGIN_SRC bash :exports code
+  bats *.bats
+#+END_SRC
+
+For instance, the step by step for the *reverse-string* exercise can be:
+
+#+NAME: reverse-string test output
+#+BEGIN_SRC bash :exports both :results verbatim
+  cd reverse-string/
+  bats *.bats
+#+END_SRC
+
+#+RESULTS: reverse-string test output
+: 1..6
+: ok 1 an empty string
+: ok 2 a word
+: ok 3 a capitalised word
+: ok 4 a sentence with punctuation
+: ok 5 a palindrome
+: ok 6 an even-sized word
