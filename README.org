@@ -69,6 +69,7 @@ For instance, the step by step for the *reverse-string* exercise can be:
   bats *.bats
 #+END_SRC
 
+outputs:
 #+RESULTS: reverse-string test output
 : 1..6
 : ok 1 an empty string
@@ -77,3 +78,7 @@ For instance, the step by step for the *reverse-string* exercise can be:
 : ok 4 a sentence with punctuation
 : ok 5 a palindrome
 : ok 6 an even-sized word
+
+** TODO Unit Test Framework
+
+Try to port code to use [[https://ctan.org/pkg/qstest][qtest]] package.
